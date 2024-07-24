@@ -1,10 +1,12 @@
 package com.atduck.openai.service;
 
+import com.atduck.openai.client.OpenAiApiConfig;
 import com.atduck.openai.completion.CompletionChoice;
 import com.atduck.openai.completion.CompletionChunk;
 import com.atduck.openai.completion.CompletionRequest;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,8 +16,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CompletionTest {
 
+
     String token = System.getenv("OPENAI_TOKEN");
-    OpenAiService service = new OpenAiService(token);
+    String host = System.getenv("OPENAI_HOST");
+    OpenAiService service = new OpenAiService(new OpenAiApiConfig(host, token, Duration.ofSeconds(10)));
 
     @Test
     void createCompletion() {

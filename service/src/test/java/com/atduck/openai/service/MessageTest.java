@@ -1,6 +1,7 @@
 package com.atduck.openai.service;
 
 import com.atduck.openai.ListSearchParameters;
+import com.atduck.openai.client.OpenAiApiConfig;
 import com.atduck.openai.file.File;
 import com.atduck.openai.messages.Message;
 import com.atduck.openai.messages.MessageFile;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +31,8 @@ public class MessageTest {
     @BeforeAll
     static void setup() {
         String token = System.getenv("OPENAI_TOKEN");
-        service = new OpenAiService(token);
+        String host = System.getenv("OPENAI_HOST");
+        service = new OpenAiService(new OpenAiApiConfig(host, token, Duration.ofSeconds(10)));
 
         ThreadRequest threadRequest = ThreadRequest.builder()
                 .build();

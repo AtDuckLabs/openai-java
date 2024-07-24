@@ -1,16 +1,21 @@
 package com.atduck.openai.service;
 
 import com.atduck.openai.OpenAiHttpException;
+import com.atduck.openai.client.OpenAiApiConfig;
 import com.atduck.openai.edit.EditRequest;
 import com.atduck.openai.edit.EditResult;
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class EditTest {
 
+
     String token = System.getenv("OPENAI_TOKEN");
-    OpenAiService service = new OpenAiService(token);
+    String host = System.getenv("OPENAI_HOST");
+    OpenAiService service = new OpenAiService(new OpenAiApiConfig(host, token, Duration.ofSeconds(10)));
 
     @Test
     void edit() throws OpenAiHttpException {

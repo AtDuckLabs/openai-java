@@ -5,6 +5,7 @@ import com.atduck.openai.audio.CreateTranscriptionRequest;
 import com.atduck.openai.audio.CreateTranslationRequest;
 import com.atduck.openai.audio.TranscriptionResult;
 import com.atduck.openai.audio.TranslationResult;
+import com.atduck.openai.client.OpenAiApiConfig;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -23,7 +24,8 @@ public class AudioTest {
     static String koreanAudioFilePath = "src/test/resources/korean-hello.mp3";
 
     String token = System.getenv("OPENAI_TOKEN");
-    OpenAiService service = new OpenAiService(token, Duration.ofSeconds(30));
+    String host = System.getenv("OPENAI_HOST");
+    OpenAiService service = new OpenAiService(new OpenAiApiConfig(host, token, Duration.ofSeconds(30)));
 
     @Test
     void createTranscription() {

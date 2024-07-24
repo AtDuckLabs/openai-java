@@ -1,5 +1,6 @@
 package com.atduck.openai.service;
 
+import com.atduck.openai.client.OpenAiApiConfig;
 import com.atduck.openai.image.CreateImageEditRequest;
 import com.atduck.openai.image.CreateImageRequest;
 import com.atduck.openai.image.CreateImageVariationRequest;
@@ -20,7 +21,8 @@ public class ImageTest {
     static String maskPath = "src/test/resources/mask.png";
 
     String token = System.getenv("OPENAI_TOKEN");
-    OpenAiService service = new OpenAiService(token, Duration.ofSeconds(30));
+    String host = System.getenv("OPENAI_HOST");
+    OpenAiService service = new OpenAiService(new OpenAiApiConfig(host, token, Duration.ofSeconds(30)));
 
     @Test
     void createImageUrl() {

@@ -1,5 +1,6 @@
 package com.atduck.openai.service;
 
+import com.atduck.openai.client.OpenAiApiConfig;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -38,7 +39,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class AssistantFunctionTest {
     String token = System.getenv("OPENAI_TOKEN");
-    OpenAiService service = new OpenAiService(token, Duration.ofMinutes(1));
+    String host = System.getenv("OPENAI_HOST");
+    OpenAiService service = new OpenAiService(new OpenAiApiConfig(host, token, Duration.ofSeconds(1)));
 
     @Test
     void createRetrieveRun() throws JsonProcessingException {

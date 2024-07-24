@@ -1,6 +1,7 @@
 package com.atduck.openai.service;
 
 import com.atduck.openai.DeleteResult;
+import com.atduck.openai.client.OpenAiApiConfig;
 import com.atduck.openai.file.File;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -22,7 +24,8 @@ public class FileTest {
     static String filePath = "src/test/resources/fine-tuning-data.jsonl";
 
     String token = System.getenv("OPENAI_TOKEN");
-    OpenAiService service = new OpenAiService(token);
+    String host = System.getenv("OPENAI_HOST");
+    OpenAiService service = new OpenAiService(new OpenAiApiConfig(host, token, Duration.ofSeconds(10)));
     static String fileId;
 
     @Test

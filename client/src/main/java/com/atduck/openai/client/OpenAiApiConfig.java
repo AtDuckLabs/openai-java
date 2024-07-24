@@ -41,4 +41,15 @@ public class OpenAiApiConfig {
         this.timeout = timeout;
     }
 
+    public OpenAiApiConfig(String token, Duration timeout) {
+        this.token = token;
+        this.timeout = timeout;
+    }
+
+    public OpenAiApiConfig(String host, String token, Duration timeout) {
+        this.host = host;
+        this.token = token;
+        this.timeout = timeout;
+    }
+
 }

@@ -1,10 +1,12 @@
 package com.atduck.openai.service;
 
+import com.atduck.openai.client.OpenAiApiConfig;
 import com.atduck.openai.finetune.FineTuneEvent;
 import com.atduck.openai.finetune.FineTuneRequest;
 import com.atduck.openai.finetune.FineTuneResult;
 import org.junit.jupiter.api.*;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +23,8 @@ public class FineTuneTest {
     @BeforeAll
    static void setup() throws Exception {
         String token = System.getenv("OPENAI_TOKEN");
-        service = new OpenAiService(token);
+        String host = System.getenv("OPENAI_HOST");
+        service = new OpenAiService(new OpenAiApiConfig(host, token, Duration.ofSeconds(10)));
         fileId = service.uploadFile("fine-tune", "src/test/resources/fine-tuning-data.jsonl").getId();
 
         // wait for file to be processed

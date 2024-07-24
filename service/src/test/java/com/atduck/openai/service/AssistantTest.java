@@ -4,10 +4,12 @@ import com.atduck.openai.DeleteResult;
 import com.atduck.openai.ListSearchParameters;
 import com.atduck.openai.OpenAiResponse;
 import com.atduck.openai.assistants.*;
+import com.atduck.openai.client.OpenAiApiConfig;
 import com.atduck.openai.file.File;
 import com.atduck.openai.utils.TikTokensUtil;
 import org.junit.jupiter.api.*;
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AssistantTest {
 
-    static OpenAiService service = new OpenAiService(System.getenv("OPENAI_TOKEN"));
+    static OpenAiService service = new OpenAiService(new OpenAiApiConfig(System.getenv("OPENAI_HOST"), System.getenv("OPENAI_TOKEN"), Duration.ofSeconds(1)));
     static String assistantId;
     static String fileId;
 
