@@ -1,10 +1,10 @@
 package example;
 
+import com.atduck.openai.completion.chat.*;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.theokanning.openai.completion.chat.*;
-import com.theokanning.openai.service.OpenAiService;
+import com.atduck.openai.service.OpenAiService;
 
 import java.util.*;
 

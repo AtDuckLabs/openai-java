@@ -1,11 +1,11 @@
 package example;
 
+import com.atduck.openai.completion.chat.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
-import com.theokanning.openai.completion.chat.*;
-import com.theokanning.openai.completion.chat.ChatCompletionRequest.ChatCompletionRequestFunctionCall;
-import com.theokanning.openai.service.FunctionExecutor;
-import com.theokanning.openai.service.OpenAiService;
+import com.atduck.openai.completion.chat.ChatCompletionRequest.ChatCompletionRequestFunctionCall;
+import com.atduck.openai.service.FunctionExecutor;
+import com.atduck.openai.service.OpenAiService;
 
 import java.util.*;
 

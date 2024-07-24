@@ -1,11 +1,11 @@
 package example;
 
-import com.theokanning.openai.completion.chat.ChatCompletionRequest;
-import com.theokanning.openai.completion.chat.ChatMessage;
-import com.theokanning.openai.completion.chat.ChatMessageRole;
-import com.theokanning.openai.service.OpenAiService;
-import com.theokanning.openai.completion.CompletionRequest;
-import com.theokanning.openai.image.CreateImageRequest;
+import com.atduck.openai.completion.chat.ChatCompletionRequest;
+import com.atduck.openai.completion.chat.ChatMessage;
+import com.atduck.openai.completion.chat.ChatMessageRole;
+import com.atduck.openai.service.OpenAiService;
+import com.atduck.openai.completion.CompletionRequest;
+import com.atduck.openai.image.CreateImageRequest;
 
 import java.time.Duration;
 import java.util.ArrayList;

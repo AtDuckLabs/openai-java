@@ -1,8 +1,8 @@
 package example;
 
-import com.theokanning.openai.completion.chat.*;
-import com.theokanning.openai.service.FunctionExecutor;
-import com.theokanning.openai.service.OpenAiService;
+import com.atduck.openai.completion.chat.*;
+import com.atduck.openai.service.FunctionExecutor;
+import com.atduck.openai.service.OpenAiService;
 import example.OpenAiApiFunctionsExample.Weather;
 import example.OpenAiApiFunctionsExample.WeatherResponse;
 import io.reactivex.Flowable;

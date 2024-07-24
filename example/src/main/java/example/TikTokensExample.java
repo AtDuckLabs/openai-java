@@ -1,8 +1,8 @@
 package example;
 
-import com.theokanning.openai.completion.chat.ChatMessage;
-import com.theokanning.openai.completion.chat.ChatMessageRole;
-import com.theokanning.openai.utils.TikTokensUtil;
+import com.atduck.openai.completion.chat.ChatMessage;
+import com.atduck.openai.completion.chat.ChatMessageRole;
+import com.atduck.openai.utils.TikTokensUtil;
 
 import java.util.ArrayList;
 import java.util.List;
